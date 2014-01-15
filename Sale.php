@@ -16,11 +16,53 @@ class Sale {
 
 
     public static function all() {
-		echo "データベースから全ての売上データを取得して返す。";
+		echo "Sale::all();データベースから全ての売上データを取得して返す。<br>";
+
+        try {
+            $pdo = new PDO('mysql:host=127.0.0.1;dbname=test_for_exam;charset=utf8;', 'root', '');
+            $stmt = $pdo->query('SELECT * FROM sales');
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo implode(', ', $row) . PHP_EOL . '<br />';
+            }
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+        }
+
+        $pdo = null;
+
     }
 
     public function save() {
 		echo "自分自身のデータをデータベースに保存する。";
+
+        /*  
+        $ids  = array(2, 3, 4);
+        $names = array('kimchi', 'fried Chicken', 'avocado');
+        $prices   = array(350, 240, 90);
+
+        try {
+            $pdo = new PDO('mysql:host=127.0.0.1;dbname=test_for_exam;charset=utf8', 'root', '');
+            $stmt = $pdo->prepare('INSERT INTO Products (id, name, price) values(:ID, :NAME, :PRICE)');
+
+            for ($i = 0; $i < 3; $i++) {
+                $stmt->bindValue(':ID',   $ids[$i]);
+                $stmt->bindValue(':NAME',  $names[$i]);
+                $stmt->bindValue(':PRICE',    $prices[$i]);
+                $stmt->execute();
+            }
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+        }
+
+        $pdo = null;
+
+        //CREATE TABLE sales(
+        //id integer primary key AUTO_INCREMENT,
+        //something to execute
+        //);
+
+        */
     }
 
     public function getId() {
