@@ -1,18 +1,18 @@
 <?php
 	class SalesController{
-		SalesController{
+		public function SalesController{
 
 		}
 
-		void indexAction(){
+		public  function indexAction(){
 			echo "売上一覧画面を表示";
 		}
 
-		void newAction(){
+		public function newAction(){
 			echo "購入画面を表示";
 		}
 
-		coid createAction(){
+		public function createAction(){
 			echo "購入処理として Sale#save を呼び出して購入データをデータベースに保存する。";
 		}
 
