@@ -1,4 +1,6 @@
 <?php
+	include "Sale.php";
+
 	class SalesController{
 		public function SalesController{
 
