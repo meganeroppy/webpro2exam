@@ -9,11 +9,11 @@
 		}
 	
 
-    //public function index() {
+    public function index() {
 
-     //   $model_data = array('テレビ', '掃除機', '洗濯機');
-      //  include('views/products/index.php');
-    //}
+        $model_data = array('テレビ', '掃除機', '洗濯機');
+        include('Products/index.php');
+    }
 }
 
 $controller = new ProductsController();
