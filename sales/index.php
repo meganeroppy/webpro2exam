@@ -1,7 +1,3 @@
-<?php
-	require_once("../SalesController.php");
-//	$controller = new SalesController();
-?>
 
 <!DOCTYPE html>
 <html>
@@ -11,16 +7,11 @@
 </head>
 <body>
 
-	<a href="../Products/index.php"><h4>商品一覧</h4></a>
-	<h4>売上一覧</h4>
-
 	<?php
 	//	$controller::indexAction();
-	SalesController::indexAction();
+	//SalesController::indexAction();
 	?>
 
-<form action = "../index.php">
-   	<button type="submit">Back To Start Page</button>
-</form>
+
 </body>
 </html>

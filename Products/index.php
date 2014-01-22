@@ -1,10 +1,14 @@
 <?php
 
+/*
+
 $ids  = array(1, 2, 3);
 $names = array('スモールライト', 'どこでもドア', 'タイムふろしき');
 $prices   = array(3500000, 24000000, 9000000);
 
+
 try {
+	
     $pdo = new PDO('mysql:host=127.0.0.1;dbname=test_for_exam;charset=utf8', 'root', '');
     $stmt = $pdo->prepare('INSERT INTO Products (id, name, price) values(:ID, :NAME, :PRICE)');
 
@@ -21,9 +25,15 @@ try {
     }   
 } catch (PDOException $e) {
     var_dump($e->getMessage());
+
 }
 
+
+
 $pdo = null;
+*/
+
+
 
 ?>
 <!DOCTYPE html>
@@ -33,8 +43,7 @@ $pdo = null;
 </head>
 <body>
 	
-	<h4>商品一覧</h4>
-	<a href="../sales/index.php"><h4>売上一覧</h4></a>
+	
     <ul>
     <?php
  //       foreach ($model_data as $name) {
@@ -43,8 +52,5 @@ $pdo = null;
         }
     ?>
     </ul>
-    <form action = "../index.php">
-    	<button type="submit">Back To Start Page</button>
-    </form>
 </body>
 </html>
