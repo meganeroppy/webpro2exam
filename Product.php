@@ -10,20 +10,27 @@ class Product{
 		}
 
 		public function all(){
-//			echo "データベースから商品データを全て取得して返す。";
+			//echo "データベースから商品データを全て取得して返す。";
+			echo "<h1>商品一覧</h1>";
+
+
 			try {
-			    $pdo = new PDO('mysql:host=127.0.0.1;dbname=test_for_exam;charset=utf8;', 'root', '');
+
+
+
+			    $pdo = new PDO('mysql:host=127.0.0.1;dbname=webpro2_exam;charset=utf8;', 'root', '');
 			    $stmt = $pdo->query('SELECT * FROM Products');
 
 
-			    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+			    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
+//			    <?php echo implode(', ', $row) . PHP_EOL . '<br />'; ?>
+			
+   				<a href="sales/new.php?id=<? echo $row['id']; ?>&name=<? echo $row['name']; ?>&price=<? echo $row['price']; ?>"  ><p><? echo $row['name']; ?></p></a>
 
-			        <form action = "purchase.php" method = "post" content = "<?php echo('id'); ?>">
+			    <? } 
 
-			        	<button style = "submit"> <?php echo implode(', ', $row) . PHP_EOL . '<br />'; ?> </button>
-			        </form>
 
-			    <? }
+
 			} catch (PDOException $e) {
 			    var_dump($e->getMessage());
 			}

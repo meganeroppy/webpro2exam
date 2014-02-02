@@ -17,9 +17,11 @@ class Sale {
 
     public static function all() {
 		echo "Sale::all();データベースから全ての売上データを取得して返す。<br>";
+        echo "<h1>売上一覧</h1>";
 
         try {
-            $pdo = new PDO('mysql:host=127.0.0.1;dbname=test_for_exam;charset=utf8;', 'root', '');
+            
+            $pdo = new PDO('mysql:host=127.0.0.1;dbname=webpro2_exam;charset=utf8;', 'root', '');
             $stmt = $pdo->query('SELECT * FROM sales');
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
