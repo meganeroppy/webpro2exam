@@ -7,8 +7,8 @@
 		session_start();
 	}
 
-	$productsController = new ProductsController();
-	$salesController = new SalesController();
+	
+	
 
 
 ?>
@@ -35,10 +35,12 @@
 	<?php
 	
 	if(!isset($_POST["mode"]) || $_POST["mode"] == "index"){
+		$productsController = new ProductsController();
 		$productsController->indexAction();
 
 	}else if($_POST["mode"] == "sales"){
-
+		
+		$salesController = new SalesController();
 		$salesController->indexAction();
 	}
 	

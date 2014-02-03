@@ -3,8 +3,7 @@
 
 	class SalesController{
 		function __construct(){
-			$tmpArray =  array('id' => 1, 'product_id' => 1, 'sales_at' => "Tokyo", 'quantity' => 10);
-			$this->sale = new Sale($tmpArray);
+
 		}
 
 		public function indexAction(){
@@ -19,8 +18,10 @@
 
 		}
 
-		public function createAction(){
-			echo "購入処理として Sale#save を呼び出して購入データをデータベースに保存する。";
+		public function createAction($id){
+			//echo "購入処理として Sale->save() を呼び出して購入データをデータベースに保存する。";
+			$tmpArray =  array('id' => "_ID_", 'product_id' => $id, 'sales_at' => "_DATE_", 'quantity' => "_QUANTITY_");
+			$this->sale = new Sale($tmpArray);
 			$this->sale->save();
 		}
 

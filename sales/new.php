@@ -1,7 +1,6 @@
 <?php
-	if(!session_id()){
-		session_start();
-	}
+	include_once "../ProductsController.php";
+	include_once "../SalesController.php";
 
 	if(isset($_GET["id"])){
 		$id = $_GET["id"];
@@ -20,15 +19,26 @@
 	}
 
 	if(isset($_POST["completed"])){
-		$completed = true;
+		if($_POST["completed"] == true){
+
+			$salesController = new salesController();
+			$salesController->createAction($id);	//データベースに保存
+
+			$completed = true;
+		}else{
+			$completed = false;
+		}
 	}else{
-		$completed = false;
+			$completed = false;
 	}
+
 ?>
+
 <h1>商品詳細</h1>
 
 <? if($completed){ ?>
 	<!-- 購入確定後 -->
+
 		<h2>商品の購入が完了しました。</h2>
 	<? echo "商品ID：{$id}"; ?>
 	<form action="../index.php" method="POST">
@@ -37,10 +47,8 @@
 	</form>
 <? } else { ?>
 	<!-- 購入確定前 -->
-	
 
 <p>この商品を購入しますか？</p>
-
 <form action="new.php" method="POST">
 	<table>
 		<tr><th>商品ID</th><th>商品名</th><th>価格</th><th>数量</th></tr>
