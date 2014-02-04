@@ -10,6 +10,10 @@
 		$id = $_POST["id"];
 	}
 
+	if(isset($_POST["quantity"])){
+		$quantity = $_POST["quantity"];
+	}
+
 	if(isset($_GET["name"])){
 		$name = $_GET["name"];
 	}
@@ -22,7 +26,7 @@
 		if($_POST["completed"] == true){
 
 			$salesController = new salesController();
-			$salesController->createAction($id);	//データベースに保存
+			$salesController->createAction($id, $quantity);	//データベースに保存
 
 			$completed = true;
 		}else{
@@ -34,7 +38,7 @@
 
 ?>
 
-<h1>商品詳細</h1>
+
 
 <? if($completed){ ?>
 	<!-- 購入確定後 -->
@@ -47,7 +51,8 @@
 	</form>
 <? } else { ?>
 	<!-- 購入確定前 -->
-
+	
+<h1>商品詳細</h1>
 <p>この商品を購入しますか？</p>
 <form action="new.php" method="POST">
 	<table>
