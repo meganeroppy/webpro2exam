@@ -19,9 +19,6 @@
 				$this->tmpArray[$i][4] = $this->tmpArray[$i][3] * $tmp['price'];
 			}
 
-			
-
-
 			include_once "Sales/index.php";
 		}
 

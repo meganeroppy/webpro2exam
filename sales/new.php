@@ -51,13 +51,13 @@
 	</form>
 <? } else { ?>
 	<!-- 購入確定前 -->
-	
+
 <h1>商品詳細</h1>
 <p>この商品を購入しますか？</p>
 <form action="new.php" method="POST">
 	<table>
 		<tr><th>商品ID</th><th>商品名</th><th>価格</th><th>数量</th></tr>
-		<tr><td><? echo $id; ?></td><td><? echo $name; ?></td><td><? echo $price; ?></td><td><input type="number"  min='0' size=2 name="quantity" value="1"></td></tr>
+		<tr><td><? echo $id; ?></td><td><? echo $name; ?></td><td><? echo $price . "円"; ?></td><td><input type="number"  min='0' size=2 name="quantity" value="1"></td></tr>
 	</table>
 	<input type="hidden" name="id" value="<? echo $id; ?>">
 	<input type="hidden" name="completed" value=true>
